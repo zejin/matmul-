@@ -1,0 +1,5 @@
+Summary - Group 11
+------
+Looking to optimize matrix multiplication by managing cache size was a really cool way of going about the problem that my group hadn't tried. Considering what we've been doing in class the past couple weeks, it seems really fitting to try a method like this out, and you're doing better than the baseline results! It does seem strange that the Block size of 96 didn't change anything, although there might be other things at play like you've mentioned. Is it possible that the cache is storing something else perhaps related to the software running the server itself?  
+
+Switching up the order of the for loops when performing the multipilication does seem like a good approach as well, although from our personal experience, we noticed that the jik didn't offer much in the way of speed boosts. The pdf linked to in the readme for matmul- inndicated that jki seems to be the optimal order, so perhaps you might want to take a look at that order as well.
