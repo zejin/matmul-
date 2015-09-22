@@ -1,4 +1,4 @@
-Summary
+Summary - Group 12
 -------
 Wow, you guys tried a lot. The change in the loop ordering was a good choice. By any chance, did you try the other combinations of orderings (e.g. jik, kji, etc.)? I know that the Fortran implementation uses the one that you tried, but you might want to add more intuition as to why the ordering works for the final version?
 
