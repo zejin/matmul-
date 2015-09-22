@@ -1,0 +1,7 @@
+Summary
+-------
+Wow, you guys tried a lot. The change in the loop ordering was a good choice. By any chance, did you try the other combinations of orderings (e.g. jik, kji, etc.)? I know that the Fortran implementation uses the one that you tried, but you might want to add more intuition as to why the ordering works for the final version?
+
+Also, good catch with the conflict misses, and very clever way of handling it. 
+
+In the hierarchical blocking section, another group got a different number for the L1 cache than your group did. Is it 32 or 64? I followed the link you used and noticed that there are two 32s, so I thought it was 64. 
