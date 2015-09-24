@@ -1,3 +1,8 @@
+/*
+ * Iterates across the arrays ina a different manner to
+ * increase cache efficiency and decrease cache misses
+ */ 
+
 #include <stdio.h>
 #include <stdlib.h>
 const char* dgemm_desc = "My awesome dgemm.";
