@@ -41,14 +41,14 @@ void do_block2(const int lda,
   double AA[BLOCK_SIZE2 * BLOCK_SIZE2] = {0};
   double BB[BLOCK_SIZE2 * BLOCK_SIZE2] = {0};
 
-  for (int t = 0; t < M; ++t) {
-    for (int s = 0; s < K; ++s) {
+  for (int s = 0; s < K; ++s) {
+    for (int t = 0; t < M; ++t) {
       AA[t + s * BLOCK_SIZE2] = A[i + t + (k + s) * BLOCK_SIZE1];
     } 
   }
 
-  for (int t = 0; t < K; ++t) {
-    for (int s = 0; s < N; ++s) {
+  for (int s = 0; s < N; ++s) {
+    for (int t = 0; t < K; ++t) {
       BB[t + s * BLOCK_SIZE2] = B[k + t + (j + s) * BLOCK_SIZE1];
     } 
   }
@@ -68,14 +68,14 @@ void do_block1(const int lda,
   double AA[BLOCK_SIZE1 * BLOCK_SIZE1] = {0};
   double BB[BLOCK_SIZE1 * BLOCK_SIZE1] = {0};
 
-  for (int t = 0; t < M; ++t) {
-    for (int s = 0; s < K; ++s) {
+  for (int s = 0; s < K; ++s) {
+    for (int t = 0; t < M; ++t) {
       AA[t + s * BLOCK_SIZE1] = A[i + t + (k + s) * lda];
     } 
   }
 
-  for (int t = 0; t < K; ++t) {
-    for (int s = 0; s < N; ++s) {
+  for (int s = 0; s < N; ++s) {
+    for (int t = 0; t < K; ++t) {
       BB[t + s * BLOCK_SIZE1] = B[k + t + (j + s) * lda];
     } 
   }
