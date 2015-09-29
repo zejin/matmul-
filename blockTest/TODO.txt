@@ -15,5 +15,3 @@
 3. small size
   compute inner loop with order j-k-i
   no blocking is taken
-
-
