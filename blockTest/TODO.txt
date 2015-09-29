@@ -15,8 +15,4 @@
 3. small size
   compute inner loop with order j-k-i
   no blocking is taken
-<<<<<<< HEAD
-=======
-  
 
->>>>>>> 99d817fbe7914827f2e0f20a93423c3945b36179
