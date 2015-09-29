@@ -1,4 +1,16 @@
-Transpose within blocking
-vectorize
-small size
+1. transpose within blocking
+
+
+2. vectorize (same as blocking with order j-k-i)
+  before:
+  for j
+    for k
+      for i
+        C[i,j] += A[i,k] * B[k,j]
+  after:
+  for j
+    for k
+      C[:,j] += A[:,k] * B[k,j]
+
+3. small size
 
