@@ -1,5 +1,5 @@
 1. transpose within blocking
-
+  aa is a tranposed block matrix of A
 
 2. vectorize (same as blocking with order j-k-i)
   before:
@@ -13,4 +13,7 @@
       C[:,j] += A[:,k] * B[k,j]
 
 3. small size
+  compute inner loop with order j-k-i
+  no blocking is taken
+  
 
