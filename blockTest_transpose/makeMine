@@ -35,7 +35,7 @@ SUFF=".pbs"
 
 
 $CC -c $CFLAGS matmul.c -DDEBUGRUN
-sizes=(16 32 64 128 512 1024 2048)
+sizes=(2 4 8 16 32 64 128 256 512 1024)
 for l1 in ${sizes[*]};
 do 
   $CC -c $CFLAGS $OPTFLAGS dgemm_mine.c -D BLOCK_SIZE1=${l1}

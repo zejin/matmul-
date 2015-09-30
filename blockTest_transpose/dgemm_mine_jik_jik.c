@@ -22,7 +22,7 @@ void basic_dgemm(const int lda, const int M, const int N, const int K,
 
     for (k = 0; k < K; ++k){
       for(i = 0; i < M; ++i){       
-        aa[k*BLOCK_SIZE + i] = A[k*lda + i];
+        aa[i*BLOCK_SIZE + k] = A[k*lda + i];
       }
     }
 
@@ -36,7 +36,7 @@ void basic_dgemm(const int lda, const int M, const int N, const int K,
         for (i = 0; i < M; ++i) {
             double cij = C[j*lda+i];
             for (k = 0; k < K; ++k) {
-                cij += aa[k*BLOCK_SIZE+i] * bb[j*BLOCK_SIZE+k];
+                cij += aa[i*BLOCK_SIZE+k] * bb[j*BLOCK_SIZE+k];
             }
             C[j*lda+i] = cij;
         }
@@ -62,13 +62,14 @@ void square_dgemm(const int M, const double *A, const double *B, double *C)
 
     //double* t = (double*)malloc(BLOCK_SIZE * BLOCK_SIZE * sizeof(double));
     double aa[BLOCK_SIZE * BLOCK_SIZE] = {0};
-    double cc[BLOCK_SIZE * BLOCK_SIZE];
+    double bb[BLOCK_SIZE * BLOCK_SIZE] = {0};
+    double cc[BLOCK_SIZE * BLOCK_SIZE] = {0};
 
     int bi, bj, bk;
-    for (bi = 0; bi < n_blocks; ++bi) {
-        const int i = bi * BLOCK_SIZE;
-        for (bj = 0; bj < n_blocks; ++bj) {
-            const int j = bj * BLOCK_SIZE;
+    for (bj = 0; bj < n_blocks; ++bj) {
+        const int j = bj * BLOCK_SIZE;
+        for (bi = 0; bi < n_blocks; ++bi) {
+            const int i = bi * BLOCK_SIZE;
             for (bk = 0; bk < n_blocks; ++bk) {
                 const int k = bk * BLOCK_SIZE;
                 do_block(M, A, B, C, aa, bb, cc, i, j, k);
