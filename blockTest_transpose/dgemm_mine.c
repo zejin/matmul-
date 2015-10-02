@@ -32,8 +32,8 @@ void basic_dgemm(const int lda, const int M, const int N, const int K,
       }
     }
 
-    for (i = 0; i < M; ++i) {
-        for (j = 0; j < N; ++j) {
+    for (j = 0; j < N; ++j) {
+        for (i = 0; i < M; ++i) {
             double cij = C[j*lda+i];
             for (k = 0; k < K; ++k) {
                 cij += aa[i*BLOCK_SIZE+k] * bb[j*BLOCK_SIZE+k];
