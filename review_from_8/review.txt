@@ -1,0 +1,38 @@
+==========================================================================
+ Review from Group 8
+==========================================================================
+
+1. Strengths
+
+* Thorough parameter sweeps for block sizes to analyze cache locality
+  effects.
+
+* Experimenting with loop ordering to improve memory access patterns is a
+  good idea.
+
+2. Potential Improvements
+
+* More analysis on why certain loop orderings perform better would be
+  nice. There is a reference to amiable memory access patterns, but there
+  is also a tradeoff between how much partial products you can accumulate
+  before having to store to memory if you do not iterate over k as the
+  innermost loop.
+
+* You might also want to be a bit more directed about choosing blocking
+  sizes. Increasing in powers of 2 might not make sense here since the
+  point is to fit your working set into the top level caches (i.e., L1)
+  as much as possible.
+
+* Not sure what one-layer vs. two-layer blocking is. Are you changing the
+  block granularity of different matrices?
+
+* Are the loop ordering experiments done on top of blocking? I'm having
+  trouble finding the code that corresponds to this. Is it dgemm_bc.c?
+
+3. Additional Comments
+
+* It might be helpful to omit the BLAS/MKL results on the plots since it
+  makes it difficult to see the benefits of the optimizations relative to
+  the naive baselines.
+
+
